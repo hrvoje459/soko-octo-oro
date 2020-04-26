@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		form:hover {
+			background-color: rgba(255, 238, 0, 0.3)
+		}
+		html{
+			background-color: rgb(12, 12, 12);
+		}
+		test-color {
+			background-color: rgba(255, 0, 0, 0.6);
+		}
+		input {
+			vertical-align: text-top;
+		}
+		body{
+			color: rgba(255, 255, 255, 0.75);
+		}
+		li{
+			border: 1px solid rgba(255, 255, 255, 0.75);
+		}
+	</style>
+	<script>
+		console.log("by: Hrvoje");
+
+		function funcProvjeriSve() {
+			let x = document.getElementsByTagName("form");
+			for (let i = 0; i < x.length; i++) {
+				func21(x[i]);
+			}
+		}
+
+		function func21(form) {
+
+			let brojac = 0;
+			for (let i = 0; i < form.length; i++) {
+				if (form[i].checked && form[i].name == "netocan") {
+					form.setAttribute("style", "padding: 1.5vh; background-color: rgba(255, 0, 0, 0.6)");
+					return;
+				} else if (form[i].checked && form[i].name == "tocan") {
+					brojac++;
+				}
+			}
+			if (brojac == form.tocan.length) {
+				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 255, 0, 0.6)");
+			} else {
+				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 0, 255, 0.1)");
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Online provjera znanja Operacijski Sustavi</h1>
+	<br>
+
+	<ol>
+		<input type="button" onclick="funcProvjeriSve(this.parentElement)">
+		<tab>&nbsp&nbsp&nbsp&nbsp</tab>Provjeri sva rješenja<br>
+		<br>
+		<li>
+			<form style="padding: 1.5vh;">
+				<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
+					konačnog automata?</label>
+				<br>
+				<br>
+				<ol>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="netocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u dohvatljivo<br>
+				</ol>
+			</form>
+			<br>
+			<br>
+		</li>
+		<li>
+			<form style="padding: 1.5vh;">
+				<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
+					konačnog automata?</label>
+				<br>
+				<br>
+				<ol>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="netocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u dohvatljivo<br>
+				</ol>
+			</form>
+			<br>
+			<br>
+		</li>
+		<li>
+			<form style="padding: 1.5vh;">
+				<label>Vaše pitanje</label>
+				<br>
+				<br>
+				<ol>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>dal je točan ili netočan<br>
+					<input type="checkbox" name="netocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>u htmlu se vidi kako stvarati nove zadatke<br>
+					<input type="checkbox" name="netocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>potrebno kopirati sve unutar i uključujući "li" tagove <br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>lagani copy/paste + zamjena teksta ggez<br>
+					<input type="checkbox" name="tocan">
+					<tab>&nbsp&nbsp&nbsp&nbsp</tab>u ovom primjeru prvi, četvrti i peti su točni<br>
+				</ol>
+				<br>
+			</form>
+			<br>
+			<br>
+		</li>
+	</ol>
+</body>
+
+</html>
