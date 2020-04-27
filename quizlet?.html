@@ -24,7 +24,7 @@
 			vertical-align: top;
 			background-color: rgb(221, 221, 221);
 			color: black;
-			border: 2px solid #4CAF50;
+			border: 2px solid rgb(75, 175, 80);
 			outline: none;
 		}
 
@@ -61,7 +61,7 @@
 			margin: auto;
 			font-size: 3em;
 		}
-
+		
 		.studosi_logo {
 			align-self: center;
 			vertical-align: middle;
@@ -80,11 +80,22 @@
 			border: 1px solid rgba(255, 255, 255, 0.75);
 		}
 
+		.forma_brate {
+			border: 1px solid rgba(255, 255, 255, 0.75);
+		}
+
 		ul {
 			padding: 0;
 		}
 
 		li {
+			width: 70%;
+			margin: auto;
+			display: block;
+			font-size: 20px;
+		}
+
+		.LI {
 			width: 70%;
 			margin: auto;
 			display: block;
@@ -99,21 +110,21 @@
 		console.log("by: Hrvoje");
 
 		function funcProvjeriSve() {
-			let x = document.getElementsByTagName("form");
+			let x = document.getElementsByClassName("forma_brate");
 			for (let i = 0; i < x.length; i++) {
 				func21(x[i]);
 			}
 		}
 
 		function funcOcistiSve() {
-			let x = document.getElementsByTagName("form");
+			let x = document.getElementsByClassName("forma_brate");
 			for (let i = 0; i < x.length; i++) {
 				func1212(x[i]);
 			}
 		}
 
 		function funcPrikaziSveTocne() {
-			let x = document.getElementsByTagName("form");
+			let x = document.getElementsByClassName("forma_brate");
 			for (let i = 0; i < x.length; i++) {
 				funcSetCorrect(x[i]);
 			}
@@ -122,23 +133,29 @@
 		function funcSetCorrect(form) {
 			form.setAttribute("style", "padding: 1.5vh; background-color: rgb(0, 75, 0)");
 			for (let i = 0; i < form.length; i++) {
-				if (form[i].name == "tocan") {
+				if (form[i].value == "tocan") {
 					form[i].checked = true;
+				} else {
+					form[i].checked = false;
 				}
 			}
 		}
 
 		function func21(form) {
-			let brojac = 0;
+			let ukupnoTocnih = 0;
+			let brojacTocnihOznacenih = 0;
 			for (let i = 0; i < form.length; i++) {
-				if (form[i].checked && form[i].name == "netocan") {
+				if (form[i].checked && form[i].value == "netocan") {
 					form.setAttribute("style", "padding: 1.5vh; background-color: rgba(255, 0, 0, 0.6)");
 					return;
-				} else if (form[i].checked && form[i].name == "tocan") {
-					brojac++;
+				} else if (form[i].value == "tocan") {
+					ukupnoTocnih++;
+					if (form[i].checked) {
+						brojacTocnihOznacenih++;
+					}
 				}
 			}
-			if (brojac == form.tocan.length) {
+			if (brojacTocnihOznacenih == ukupnoTocnih) {
 				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 255, 0, 0.6)");
 			} else {
 				form.setAttribute("style", "padding: 1.5vh; background-color: rgb(50, 50, 0)");
@@ -165,70 +182,54 @@
 
 	<main>
 		<br><br><br><br>
-		<h1>
-			UTR_2019/2020_Međuispit_koronamaterijal_moodle
-		</h1>
-
+		<div class = "header1">
+			<h1>
+				UTR_2019/2020_Međuispit_koronamaterijal_moodle
+			</h1>
+		</div>
 		<br>
 		<br>
 
 		<div class="postavke">
-
 			<input type="button" onclick="funcProvjeriSve()">
 			Provjeri sva rješenja
-
 			<input type="button" onclick="funcOcistiSve()">
 			Resetiraj sve zadatke
-
 			<input type="button" onclick="funcPrikaziSveTocne()">
 			Prikaži točna rješenja za sve zadatke
 		</div>
+
 		<br>
 		<br>
-		<ul>
-			<li>
-				<form style="padding: 1.5vh;">
-					<label>Vaše pitanje</label>
+
+		<div class="omot">
+			<div class="LI">
+				<form class="forma_brate" style="padding: 1.5vh;">
+					<label>Template pitanja s jednim točnim odgovorom?</label>
+
 					<br>
 					<br>
+
 					<ol>
-						<input type="checkbox" name="tocan">
-						dal je točan ili netočan<br>
-						<input type="checkbox" name="netocan">
+						<input type="radio" name="Doradio_radio" value="netocan">
+						dal je točan ili netočan
+						<br>
+						<input type="radio" name="Doradio_radio" value="netocan">
 						u htmlu se vidi kako stvarati nove zadatke
 						<br>
-						<input type="checkbox" name="netocan">
-						potrebno kopirati sve unutar i uključujući "li" tagove
+						<input type="radio" name="Doradio_radio" value="netocan">
+						potrebno kopirati cijeli div koji ima klasu "LI"
 						<br>
-						<input type="checkbox" name="tocan">
+						<input type="radio" name="Doradio_radio" value="tocan">
 						lagani copy/paste + zamjena teksta ggez
 						<br>
-						<input type="checkbox" name="tocan">
-						u ovom primjeru prvi, četvrti i peti su točni
+						<input type="radio" name="Doradio_radio" value="netocan">
+						u ovom primjeru četvrti je točan
 						<br>
 					</ol>
+
 					<br>
-				</form>
-				<br>
-				<br>
-			</li>
-			<li>
-				<form style="padding: 1.5vh;">
-					<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
-						konačnog automata?</label>
-					<br>
-					<br>
-					<ol>
-						<input type="checkbox" name="tocan">
-						iz dohvatljivog u nedohvatljivo<br>
-						<input type="checkbox" name="tocan">
-						iz nedohvatljivog u nedohvatljivo<br>
-						<input type="checkbox" name="netocan">
-						iz dohvatljivog u nedohvatljivo<br>
-						<input type="checkbox" name="tocan">
-						iz nedohvatljivog u dohvatljivo<br>
-					</ol>
-					<br>
+
 					<div class="postavke">
 						<input type="button" onclick="func21(this.parentElement.parentElement)">
 						Provjeri
@@ -236,19 +237,178 @@
 						Restart
 						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
 						Daj točno
-
-
 					</div>
 				</form>
+
 				<br>
 				<br>
 
-			</li>
+			</div>
+			<div class="LI">
+				<form class="forma_brate" style="padding: 1.5vh;">
+					<label>Template pitanja sa više ponuđenih odgovora?</label>
 
+					<br>
+					<br>
 
+					<ol>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						ukoliko je označen jedan krivi, provjera vraća crvenu pozadinu prilikom provjere
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						ukoliko su označeni samo točni, no ne svi, provjera vraća žutu pozadinu
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						ukoliko su označeni svi točni, i samo točni, provjera vraća zelenu pozadinu
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						u ovom primjeru prvi, drugi i cetvrti su točni
+						<br>
 
+					</ol>
 
-		</ul>
+					<br>
+
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+					</div>
+				</form>
+
+				<br>
+				<br>
+
+			</div>
+
+			<div class="LI">
+				<form class="forma_brate" style="padding: 1.5vh;">
+					<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
+						konačnog automata?</label>
+
+					<br>
+					<br>
+
+					<ol>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						iz dohvatljivog u nedohvatljivo
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						iz nedohvatljivog u nedohvatljivo
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						iz dohvatljivog u nedohvatljivo
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						iz nedohvatljivog u dohvatljivo
+						<br>
+					</ol>
+
+					<br>
+
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+					</div>
+				</form>
+
+				<br>
+				<br>
+
+			</div>
+
+			<div class="LI">
+				<form class="forma_brate" style="padding: 1.5vh;">
+					<label>Na koje od sljedećih operacija kontekstno neovisni jezici <b>nisu</b> zatvoreni?</label>
+
+					<br>
+					<br>
+
+					<ol>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						Presjek
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						Supstitucija
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						Nadovezivanje
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						Unija
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						Kleenov operator
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						Komplement
+						<br>
+					</ol>
+
+					<br>
+
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+					</div>
+				</form>
+
+				<br>
+				<br>
+
+			</div>
+
+			<div class="LI">
+				<form class="forma_brate" style="padding: 1.5vh;">
+					<label>Klasa jezika zatvorena je s obzirom na neku operaciju ako:</label>
+
+					<br>
+					<br>
+
+					<ol>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						primjenom te operacije na bilo koji jezik te klase nikada ne dobijemo jezik te klase
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						primjenom te operaacije na barem jedan jezik te klase nikada ne dobijemo jezik te klase
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="tocan">
+						primjenom te operacije na bilo koji jezik te klase ponovo dobijemo jezik te klase
+						<br>
+						<input type="checkbox" name="Koks_checkbox" value="netocan">
+						primjenom te operacije na barem jedan jezike te klase ponovo dobijemo jezik te klase
+						<br>
+
+					</ol>
+
+					<br>
+
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+					</div>
+				</form>
+
+				<br>
+				<br>
+
+			</div>
+		</div>
 	</main>
 </body>
 
