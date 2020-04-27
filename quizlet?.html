@@ -4,22 +4,95 @@
 <head>
 	<style>
 		form:hover {
-			background-color: rgba(255, 238, 0, 0.3)
+			background-color: rgb(43, 42, 42);
 		}
-		html{
-			background-color: rgb(12, 12, 12);
+
+		html {
+			background-color: rgb(26, 26, 26);
+			color: rgb(221, 221, 221);
 		}
+
 		test-color {
 			background-color: rgba(255, 0, 0, 0.6);
 		}
-		input {
-			vertical-align: text-top;
+
+		input[type="checkbox"] {
+			vertical-align: middle;
 		}
-		body{
-			color: rgba(255, 255, 255, 0.75);
+
+		input[type="button"] {
+			vertical-align: top;
+			background-color: rgb(221, 221, 221);
+			color: black;
+			border: 2px solid #4CAF50;
+			outline: none;
 		}
-		li{
+
+		input[type="button"]:active {
+			background-color: rgb(175, 175, 175);
+		}
+
+		body {
+			display: block;
+			margin: auto;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, Oxygen, Roboto, Helvetica, Arial, sans-serif;
+		}
+
+		header {
+			width: 100%
+		}
+
+		.topbar {
+			width: 100%;
+			background-color: rgba(28, 186, 165);
+			padding: 1vh;
+			padding-left: 5vh;
+			margin-top: 0;
+			position: fixed;
+			width: 100%;
+		}
+
+		h1 {
+			background-color: rgb(28, 186, 165);
+			border-radius: 1vh;
+			padding: 2vh;
+			text-align: center;
+			width: fit-content;
+			margin: auto;
+			font-size: 3em;
+		}
+
+		.studosi_logo {
+			align-self: center;
+			vertical-align: middle;
+			height: 35px;
+			padding-bottom: 5px;
+		}
+
+		.postavke {
+			width: fit-content;
+			margin: auto;
+			text-align: center;
+			font-size: initial;
+		}
+
+		form {
 			border: 1px solid rgba(255, 255, 255, 0.75);
+		}
+
+		ul {
+			padding: 0;
+		}
+
+		li {
+			width: 70%;
+			margin: auto;
+			display: block;
+			font-size: 20px;
+		}
+
+		.lijevidio {
+			display: inline;
 		}
 	</style>
 	<script>
@@ -32,8 +105,30 @@
 			}
 		}
 
-		function func21(form) {
+		function funcOcistiSve() {
+			let x = document.getElementsByTagName("form");
+			for (let i = 0; i < x.length; i++) {
+				func1212(x[i]);
+			}
+		}
 
+		function funcPrikaziSveTocne() {
+			let x = document.getElementsByTagName("form");
+			for (let i = 0; i < x.length; i++) {
+				funcSetCorrect(x[i]);
+			}
+		}
+
+		function funcSetCorrect(form) {
+			form.setAttribute("style", "padding: 1.5vh; background-color: rgb(0, 75, 0)");
+			for (let i = 0; i < form.length; i++) {
+				if (form[i].name == "tocan") {
+					form[i].checked = true;
+				}
+			}
+		}
+
+		function func21(form) {
 			let brojac = 0;
 			for (let i = 0; i < form.length; i++) {
 				if (form[i].checked && form[i].name == "netocan") {
@@ -46,83 +141,115 @@
 			if (brojac == form.tocan.length) {
 				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 255, 0, 0.6)");
 			} else {
-				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 0, 255, 0.1)");
+				form.setAttribute("style", "padding: 1.5vh; background-color: rgb(50, 50, 0)");
+			}
+		}
+
+		function func1212(form) {
+			form.setAttribute("style", "padding: 1.5vh;");
+			for (let i = 0; i < form.length; i++) {
+				if (form[i].checked) {
+					form[i].checked = false;
+				}
 			}
 		}
 	</script>
 </head>
 
 <body>
-	<h1>Online provjera znanja Operacijski Sustavi</h1>
-	<br>
+	<div class="topbar">
+		<a href="https://forum.studosi.net" target="_blank">
+			<img src="https://forum.studosi.net/assets/logo-fvmoevz4.png" alt="Studoši" class="studosi_logo">
+		</a>
+	</div>
 
-	<ol>
-		<input type="button" onclick="funcProvjeriSve(this.parentElement)">
-		<tab>&nbsp&nbsp&nbsp&nbsp</tab>Provjeri sva rješenja<br>
+	<main>
+		<br><br><br><br>
+		<h1>
+			UTR_2019/2020_Međuispit_koronamaterijal_moodle
+		</h1>
+
 		<br>
-		<li>
-			<form style="padding: 1.5vh;">
-				<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
-					konačnog automata?</label>
+		<br>
+
+		<div class="postavke">
+
+			<input type="button" onclick="funcProvjeriSve()">
+			Provjeri sva rješenja
+
+			<input type="button" onclick="funcOcistiSve()">
+			Resetiraj sve zadatke
+
+			<input type="button" onclick="funcPrikaziSveTocne()">
+			Prikaži točna rješenja za sve zadatke
+		</div>
+		<br>
+		<br>
+		<ul>
+			<li>
+				<form style="padding: 1.5vh;">
+					<label>Vaše pitanje</label>
+					<br>
+					<br>
+					<ol>
+						<input type="checkbox" name="tocan">
+						dal je točan ili netočan<br>
+						<input type="checkbox" name="netocan">
+						u htmlu se vidi kako stvarati nove zadatke
+						<br>
+						<input type="checkbox" name="netocan">
+						potrebno kopirati sve unutar i uključujući "li" tagove
+						<br>
+						<input type="checkbox" name="tocan">
+						lagani copy/paste + zamjena teksta ggez
+						<br>
+						<input type="checkbox" name="tocan">
+						u ovom primjeru prvi, četvrti i peti su točni
+						<br>
+					</ol>
+					<br>
+				</form>
 				<br>
 				<br>
-				<ol>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="netocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u dohvatljivo<br>
-				</ol>
-			</form>
-			<br>
-			<br>
-		</li>
-		<li>
-			<form style="padding: 1.5vh;">
-				<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
-					konačnog automata?</label>
+			</li>
+			<li>
+				<form style="padding: 1.5vh;">
+					<label>Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
+						konačnog automata?</label>
+					<br>
+					<br>
+					<ol>
+						<input type="checkbox" name="tocan">
+						iz dohvatljivog u nedohvatljivo<br>
+						<input type="checkbox" name="tocan">
+						iz nedohvatljivog u nedohvatljivo<br>
+						<input type="checkbox" name="netocan">
+						iz dohvatljivog u nedohvatljivo<br>
+						<input type="checkbox" name="tocan">
+						iz nedohvatljivog u dohvatljivo<br>
+					</ol>
+					<br>
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+
+
+					</div>
+				</form>
 				<br>
 				<br>
-				<ol>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="netocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz dohvatljivog u nedohvatljivo<br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>iz nedohvatljivog u dohvatljivo<br>
-				</ol>
-			</form>
-			<br>
-			<br>
-		</li>
-		<li>
-			<form style="padding: 1.5vh;">
-				<label>Vaše pitanje</label>
-				<br>
-				<br>
-				<ol>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>dal je točan ili netočan<br>
-					<input type="checkbox" name="netocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>u htmlu se vidi kako stvarati nove zadatke<br>
-					<input type="checkbox" name="netocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>potrebno kopirati sve unutar i uključujući "li" tagove <br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>lagani copy/paste + zamjena teksta ggez<br>
-					<input type="checkbox" name="tocan">
-					<tab>&nbsp&nbsp&nbsp&nbsp</tab>u ovom primjeru prvi, četvrti i peti su točni<br>
-				</ol>
-				<br>
-			</form>
-			<br>
-			<br>
-		</li>
-	</ol>
+
+			</li>
+
+
+
+
+		</ul>
+	</main>
 </body>
 
 </html>
