@@ -13,7 +13,7 @@
 		}
 
 		test-color {
-			background-color: rgba(255, 0, 0, 0.6);
+			background-color: rgb(100, 100, 0);
 		}
 
 		input[type="checkbox"] {
@@ -61,7 +61,7 @@
 			margin: auto;
 			font-size: 3em;
 		}
-		
+
 		.studosi_logo {
 			align-self: center;
 			vertical-align: middle;
@@ -76,26 +76,18 @@
 			font-size: initial;
 		}
 
-		form {
-			border: 1px solid rgba(255, 255, 255, 0.75);
-		}
-
+		
 		.forma_brate {
 			border: 1px solid rgba(255, 255, 255, 0.75);
 		}
-		.stil_pitanja{
+
+		.stil_pitanja {
 			font-weight: bold;
 		}
-		ul {
-			padding: 0;
-		}
 
-		li {
-			width: 70%;
-			margin: auto;
-			display: block;
-			font-size: 20px;
-		}
+		
+
+		
 
 		.LI {
 			width: 70%;
@@ -104,9 +96,7 @@
 			font-size: 20px;
 		}
 
-		.lijevidio {
-			display: inline;
-		}
+		
 	</style>
 	<script>
 		console.log("by: Hrvoje");
@@ -133,6 +123,9 @@
 		}
 
 		function funcSetCorrect(form) {
+			if (form.getElementsByTagName("input")[0].type == "text") {
+				form.getElementsByTagName("input")[1].setAttribute("type", "text");
+			}
 			form.setAttribute("style", "padding: 1.5vh; background-color: rgb(0, 75, 0)");
 			for (let i = 0; i < form.length; i++) {
 				if (form[i].value == "tocan") {
@@ -144,6 +137,10 @@
 		}
 
 		function func21(form) {
+			if (form.getElementsByTagName("input")[0].type == "text") {
+				form.setAttribute("style", "padding: 1.5vh; background-color: rgb(100, 100, 0);");
+				return;
+			}
 			let ukupnoTocnih = 0;
 			let brojacTocnihOznacenih = 0;
 			for (let i = 0; i < form.length; i++) {
@@ -160,11 +157,14 @@
 			if (brojacTocnihOznacenih == ukupnoTocnih) {
 				form.setAttribute("style", "padding: 1.5vh; background-color: rgba(0, 255, 0, 0.6)");
 			} else {
-				form.setAttribute("style", "padding: 1.5vh; background-color: rgb(50, 50, 0)");
+				form.setAttribute("style", "padding: 1.5vh; background-color: rgb(100, 100, 0);");
 			}
 		}
 
 		function func1212(form) {
+			if (form.getElementsByTagName("input")[0].type == "text") {
+				form.getElementsByTagName("input")[1].setAttribute("type", "hidden");
+			}
 			form.setAttribute("style", "padding: 1.5vh;");
 			for (let i = 0; i < form.length; i++) {
 				if (form[i].checked) {
@@ -184,9 +184,9 @@
 
 	<main>
 		<br><br><br><br>
-		<div class = "header1">
+		<div class="header1">
 			<h1>
-				UTR_2019/2020_Međuispit_koronamaterijal_moodle
+				2019/2020_Template_Naslova_Materijala
 			</h1>
 		</div>
 		<br>
@@ -205,9 +205,10 @@
 		<br>
 
 		<div class="omot">
+
 			<div class="LI">
 				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class = "stil_pitanja">Template pitanja s jednim točnim odgovorom?</label>
+					<label class="stil_pitanja">Template pitanja s jednim točnim odgovorom?</label>
 
 					<br>
 					<br>
@@ -248,7 +249,7 @@
 			</div>
 			<div class="LI">
 				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class = "stil_pitanja">Template pitanja sa više ponuđenih odgovora?</label>
+					<label class="stil_pitanja">Template pitanja sa više ponuđenih odgovora?</label>
 
 					<br>
 					<br>
@@ -285,28 +286,32 @@
 				<br>
 
 			</div>
-
 			<div class="LI">
 				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class = "stil_pitanja">Koji od navedenih prijalaza mogu postojati unutar funkcija prijelaza nekog determinističkog
-						konačnog automata?</label>
-
+					<label class="stil_pitanja">Template zadatka sa slikom?</label>
+					<br>
+					<br>
+					<img src="Nigsus.png" alt="hmmmm" style=" width: 35em; max-width: 100%;">
 					<br>
 					<br>
 
 					<ol>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						iz dohvatljivog u nedohvatljivo
+						<input type="radio" name="Koks_checkbox" value="netocan">
+						1
 						<br>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						iz nedohvatljivog u nedohvatljivo
+						<input type="radio" name="Koks_checkbox" value="netocan">
+						3
 						<br>
-						<input type="checkbox" name="Koks_checkbox" value="netocan">
-						iz dohvatljivog u nedohvatljivo
+						<input type="radio" name="Koks_checkbox" value="tocan">
+						2
 						<br>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						iz nedohvatljivog u dohvatljivo
+						<input type="radio" name="Koks_checkbox" value="netocan">
+						4
 						<br>
+						<input type="radio" name="Koks_checkbox" value="netocan">
+						0
+						<br>
+
 					</ol>
 
 					<br>
@@ -325,10 +330,41 @@
 				<br>
 
 			</div>
-
 			<div class="LI">
 				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class = "stil_pitanja">Na koje od sljedećih operacija kontekstno neovisni jezici <b>nisu</b> zatvoreni?</label>
+					<label class="stil_pitanja">Template zadatka unosom texta</label>
+					<br>
+					<br>
+
+					<input type="text" placeholder="" style=" text-align: center; width: 30%">
+					<input type="hidden" value="tocan_ogovor_ide_ovdje" readonly
+						style=" text-align: center; width: 30%">
+					<br>
+					<br>
+
+					<div class="postavke">
+						<input type="button" onclick="func21(this.parentElement.parentElement)">
+						Provjeri
+						<input type="button" onclick="func1212(this.parentElement.parentElement)">
+						Restart
+						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
+						Daj točno
+					</div>
+				</form>
+
+				<br>
+				<br>
+
+			</div>
+
+		</div>
+
+
+
+	</main>
+</body>
+
+</html>cija kontekstno neovisni jezici <b>nisu</b> zatvoreni?</label>
 
 					<br>
 					<br>
