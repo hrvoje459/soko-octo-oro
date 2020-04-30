@@ -2,18 +2,21 @@
 <html>
 
 <head>
+	<title>Unoffical materijal</title>
+	<meta charset="UTF-8">
 	<style>
-		form:hover {
-			background-color: rgb(43, 42, 42);
-		}
-
 		html {
 			background-color: rgb(26, 26, 26);
 			color: rgb(221, 221, 221);
 		}
 
-		test-color {
-			background-color: rgb(100, 100, 0);
+		body {
+			margin: auto;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, Oxygen, Roboto, Helvetica, Arial, sans-serif;
+		}
+
+		form:hover {
+			background-color: rgb(43, 42, 42);
 		}
 
 		input[type="checkbox"] {
@@ -21,52 +24,64 @@
 		}
 
 		input[type="button"] {
-			vertical-align: top;
-			background-color: rgb(221, 221, 221);
-			color: black;
-			border: 2px solid rgb(75, 175, 80);
+			background-color: rgb(26, 26, 26);
+			color: rgb(221, 221, 221);
+			border: 2px solid rgba(255, 255, 255, 0.75);
 			outline: none;
+			vertical-align: middle;
 		}
 
 		input[type="button"]:active {
-			background-color: rgb(175, 175, 175);
+			background-color: rgb(70, 70, 70)
 		}
 
-		body {
-			display: block;
-			margin: auto;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, Oxygen, Roboto, Helvetica, Arial, sans-serif;
-		}
-
-		header {
-			width: 100%
-		}
-
-		.topbar {
-			width: 100%;
-			background-color: rgba(28, 186, 165);
-			padding: 1vh;
-			padding-left: 5vh;
-			margin-top: 0;
+		.topBar {
 			position: fixed;
 			width: 100%;
-		}
-
-		h1 {
-			background-color: rgb(28, 186, 165);
-			border-radius: 1vh;
-			padding: 2vh;
-			text-align: center;
-			width: fit-content;
-			margin: auto;
-			font-size: 3em;
+			padding: 1vh;
+			padding-left: 5vh;
+			background-color: rgba(28, 186, 165);
 		}
 
 		.studosi_logo {
-			align-self: center;
 			vertical-align: middle;
 			height: 35px;
 			padding-bottom: 5px;
+		}
+
+		.naslov_materijala {
+			width: -moz-max-content;
+			/* Firefox */
+			width: -webkit-max-content;
+			/* Chrome  */
+			margin: auto;
+			padding: 1vh;
+			background-color: rgb(28, 186, 165);
+			border-radius: 1vh;
+			font-size: 3em;
+			font-weight: bold;
+			text-align: center;
+
+		}
+
+		.DIV_zadatak {
+			width: 70%;
+			margin: auto;
+			font-size: 20px;
+		}
+
+		.okvir_zadatka {
+			border: 1px solid rgba(255, 255, 255, 0.75);
+		}
+
+		.ponudeni_odgovori {
+			display: block;
+			list-style-type: decimal;
+			margin-block-start: 1em;
+			margin-block-end: 1em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+			padding-inline-start: 40px;
 		}
 
 		.postavke {
@@ -76,47 +91,34 @@
 			font-size: initial;
 		}
 
-		
-		.forma_brate {
-			border: 1px solid rgba(255, 255, 255, 0.75);
-		}
-
 		.stil_pitanja {
 			font-weight: bold;
 		}
 
-		
-
-		
-
-		.LI {
-			width: 70%;
-			margin: auto;
-			display: block;
-			font-size: 20px;
+		.slika_zadatak {
+			width: 35em;
+			max-width: 100%;
 		}
-
-		
 	</style>
 	<script>
 		console.log("by: Hrvoje");
 
 		function funcProvjeriSve() {
-			let x = document.getElementsByClassName("forma_brate");
+			let x = document.getElementsByClassName("okvir_zadatka");
 			for (let i = 0; i < x.length; i++) {
 				func21(x[i]);
 			}
 		}
 
 		function funcOcistiSve() {
-			let x = document.getElementsByClassName("forma_brate");
+			let x = document.getElementsByClassName("okvir_zadatka");
 			for (let i = 0; i < x.length; i++) {
 				func1212(x[i]);
 			}
 		}
 
 		function funcPrikaziSveTocne() {
-			let x = document.getElementsByClassName("forma_brate");
+			let x = document.getElementsByClassName("okvir_zadatka");
 			for (let i = 0; i < x.length; i++) {
 				funcSetCorrect(x[i]);
 			}
@@ -176,190 +178,129 @@
 </head>
 
 <body>
-	<div class="topbar">
-		<a href="https://forum.studosi.net" target="_blank">
-			<img src="https://forum.studosi.net/assets/logo-fvmoevz4.png" alt="Studoši" class="studosi_logo">
-		</a>
+	<div class="topBar">
+		<div>
+			<a href="https://forum.studosi.net" target="_blank">
+				<img src="https://forum.studosi.net/assets/logo-fvmoevz4.png" alt="Studoši" class="studosi_logo">
+			</a>
+		</div>
+
 	</div>
 
 	<main>
 		<br><br><br><br>
-		<div class="header1">
-			<h1>
-				2019/2020_Template_Naslova_Materijala
-			</h1>
+
+		<div class="naslov_materijala">
+
+			2019/2020_Template_Naslova_Materijala
+
 		</div>
-		<br>
-		<br>
+
+		<br><br>
 
 		<div class="postavke">
-			<input type="button" onclick="funcProvjeriSve()">
-			Provjeri sva rješenja
-			<input type="button" onclick="funcOcistiSve()">
-			Resetiraj sve zadatke
-			<input type="button" onclick="funcPrikaziSveTocne()">
-			Prikaži točna rješenja za sve zadatke
+			<input type="button" onclick="funcProvjeriSve()" value="Provjeri sva rješenja">
+			<input type="button" onclick="funcOcistiSve()" value="Resetiraj sve zadatke">
+			<input type="button" onclick="funcPrikaziSveTocne()" value="Prikaži točna rješenja za sve zadatke">
 		</div>
 
-		<br>
-		<br>
+		<br><br>
 
-		<div class="omot">
 
-			<div class="LI">
-				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class="stil_pitanja">Template pitanja s jednim točnim odgovorom?</label>
 
-					<br>
-					<br>
+		<div class="DIV_zadatak">
+			<form class="okvir_zadatka" style="padding: 1.5vh;">
 
-					<ol>
-						<input type="radio" name="Doradio_radio" value="netocan">
-						dal je točan ili netočan
-						<br>
-						<input type="radio" name="Doradio_radio" value="netocan">
-						u htmlu se vidi kako stvarati nove zadatke
-						<br>
-						<input type="radio" name="Doradio_radio" value="netocan">
-						potrebno kopirati cijeli div koji ima klasu "LI"
-						<br>
-						<input type="radio" name="Doradio_radio" value="tocan">
-						lagani copy/paste + zamjena teksta ggez
-						<br>
-						<input type="radio" name="Doradio_radio" value="netocan">
-						u ovom primjeru četvrti je točan
-						<br>
-					</ol>
+				<label class="stil_pitanja">Template pitanja s jednim točnim odgovorom?</label><br><br>
+				<div class="ponudeni_odgovori">
+					<input type="radio" name="Doradio_radio" value="netocan">
+					dal je točan ili netočan<br>
+					<input type="radio" name="Doradio_radio" value="netocan">
+					u htmlu se vidi kako stvarati nove zadatke<br>
+					<input type="radio" name="Doradio_radio" value="netocan">
+					potrebno kopirati cijeli div koji ima klasu "LI"<br>
+					<input type="radio" name="Doradio_radio" value="tocan">
+					lagani copy/paste + zamjena teksta ggez<br>
+					<input type="radio" name="Doradio_radio" value="netocan">
+					u ovom primjeru četvrti je točan<br>
+				</div><br>
 
-					<br>
+				<div class="postavke">
+					<input type="button" onclick="func21(this.parentElement.parentElement)" value="Provjeri">
+					<input type="button" onclick="func1212(this.parentElement.parentElement)" value="Restart">
+					<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)" value="Daj točno">
+				</div>
 
-					<div class="postavke">
-						<input type="button" onclick="func21(this.parentElement.parentElement)">
-						Provjeri
-						<input type="button" onclick="func1212(this.parentElement.parentElement)">
-						Restart
-						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
-						Daj točno
-					</div>
-				</form>
-
-				<br>
-				<br>
-
-			</div>
-			<div class="LI">
-				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class="stil_pitanja">Template pitanja sa više ponuđenih odgovora?</label>
-
-					<br>
-					<br>
-
-					<ol>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						ukoliko je označen jedan krivi, provjera vraća crvenu pozadinu prilikom provjere
-						<br>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						ukoliko su označeni samo točni, no ne svi, provjera vraća žutu pozadinu
-						<br>
-						<input type="checkbox" name="Koks_checkbox" value="netocan">
-						ukoliko su označeni svi točni, i samo točni, provjera vraća zelenu pozadinu
-						<br>
-						<input type="checkbox" name="Koks_checkbox" value="tocan">
-						u ovom primjeru prvi, drugi i cetvrti su točni
-						<br>
-
-					</ol>
-
-					<br>
-
-					<div class="postavke">
-						<input type="button" onclick="func21(this.parentElement.parentElement)">
-						Provjeri
-						<input type="button" onclick="func1212(this.parentElement.parentElement)">
-						Restart
-						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
-						Daj točno
-					</div>
-				</form>
-
-				<br>
-				<br>
-
-			</div>
-			<div class="LI">
-				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class="stil_pitanja">Template zadatka sa slikom?</label>
-					<br>
-					<br>
-					<img src="The_Prof.jpg" alt="hmmmm" style=" width: 35em; max-width: 100%;">
-					<br>
-					<br>
-
-					<ol>
-						<input type="radio" name="Koks_checkbox" value="netocan">
-						Bella Ciao
-						<br>
-						<input type="radio" name="Koks_checkbox" value="netocan">
-						Moja seljančica
-						<br>
-						<input type="radio" name="Koks_checkbox" value="tocan">
-						Viva la revolution
-						<br>
-						<input type="radio" name="Koks_checkbox" value="netocan">
-						Great Spirit
-						<br>
-						<input type="radio" name="Koks_checkbox" value="netocan">
-						42
-						<br>
-
-					</ol>
-
-					<br>
-
-					<div class="postavke">
-						<input type="button" onclick="func21(this.parentElement.parentElement)">
-						Provjeri
-						<input type="button" onclick="func1212(this.parentElement.parentElement)">
-						Restart
-						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
-						Daj točno
-					</div>
-				</form>
-
-				<br>
-				<br>
-
-			</div>
-			<div class="LI">
-				<form class="forma_brate" style="padding: 1.5vh;">
-					<label class="stil_pitanja">Template zadatka unosom texta</label>
-					<br>
-					<br>
-
-					<input type="text" placeholder="" style=" text-align: center; width: 30%">
-					<input type="hidden" value="tocan_ogovor_ide_ovdje" readonly
-						style=" text-align: center; width: 30%">
-					<br>
-					<br>
-
-					<div class="postavke">
-						<input type="button" onclick="func21(this.parentElement.parentElement)">
-						Provjeri
-						<input type="button" onclick="func1212(this.parentElement.parentElement)">
-						Restart
-						<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)">
-						Daj točno
-					</div>
-				</form>
-
-				<br>
-				<br>
-
-			</div>
-
+			</form><br><br>
 		</div>
 
+		<div class="DIV_zadatak">
+			<form class="okvir_zadatka" style="padding: 1.5vh;">
 
+				<label class="stil_pitanja">Template pitanja sa više ponuđenih odgovora?</label><br><br>
+				<div class="ponudeni_odgovori">
+					<input type="checkbox" name="Koks_checkbox" value="tocan">
+					ukoliko je označen jedan krivi, provjera vraća crvenu pozadinu prilikom provjere<br>
+					<input type="checkbox" name="Koks_checkbox" value="tocan">
+					ukoliko su označeni samo točni, no ne svi, provjera vraća žutu pozadinu<br>
+					<input type="checkbox" name="Koks_checkbox" value="netocan">
+					ukoliko su označeni svi točni, i samo točni, provjera vraća zelenu pozadinu<br>
+					<input type="checkbox" name="Koks_checkbox" value="tocan">
+					u ovom primjeru prvi, drugi i cetvrti su točni<br>
+				</div><br>
+
+				<div class="postavke">
+					<input type="button" onclick="func21(this.parentElement.parentElement)" value="Provjeri">
+					<input type="button" onclick="func1212(this.parentElement.parentElement)" value="Restart">
+					<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)" value="Daj točno">
+				</div>
+
+			</form><br><br>
+		</div>
+
+		<div class="DIV_zadatak">
+			<form class="okvir_zadatka" style="padding: 1.5vh;">
+
+				<label class="stil_pitanja">Template zadatka sa likom?</label><br><br>
+				<img src="The_Prof.jpg" alt="hmmmm" class="slika_zadatak"><br><br>
+				<div class="ponudeni_odgovori">
+					<input type="radio" name="Koks_checkbox" value="netocan">
+					Bella Ciao<br>
+					<input type="radio" name="Koks_checkbox" value="netocan">
+					Moja seljančica<br>
+					<input type="radio" name="Koks_checkbox" value="tocan">
+					Viva la revolution<br>
+					<input type="radio" name="Koks_checkbox" value="netocan">
+					Great Spirit<br>
+					<input type="radio" name="Koks_checkbox" value="netocan">
+					42<br>
+				</div><br>
+
+				<div class="postavke">
+					<input type="button" onclick="func21(this.parentElement.parentElement)" value="Provjeri">
+					<input type="button" onclick="func1212(this.parentElement.parentElement)" value="Restart">
+					<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)" value="Daj točno">
+				</div>
+			</form><br><br>
+		</div>
+
+		<div class="DIV_zadatak">
+			<form class="okvir_zadatka" style="padding: 1.5vh;">
+
+				<label class="stil_pitanja">Template zadatka unosom teksta</label><br><br>
+
+				<input type="text" placeholder="" style=" text-align: center; width: 30%">
+				<input type="hidden" value="tocan_ogovor_ide_ovdje" readonly
+					style=" text-align: center; width: 30%"><br><br>
+
+				<div class="postavke">
+					<input type="button" onclick="func21(this.parentElement.parentElement)" value="Provjeri">
+					<input type="button" onclick="func1212(this.parentElement.parentElement)" value="Restart">
+					<input type="button" onclick="funcSetCorrect(this.parentElement.parentElement)" value="Daj točno">
+				</div>
+			</form>
+			<br><br>
+		</div>
 
 	</main>
 </body>
