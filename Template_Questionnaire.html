@@ -165,6 +165,7 @@
 
 		function func1212(form) {
 			if (form.getElementsByTagName("input")[0].type == "text") {
+				form.getElementsByTagName("input")[0].value="";
 				form.getElementsByTagName("input")[1].setAttribute("type", "hidden");
 			}
 			form.setAttribute("style", "padding: 1.5vh;");
